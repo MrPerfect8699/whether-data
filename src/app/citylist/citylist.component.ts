@@ -11,7 +11,6 @@ export class CitylistComponent implements OnInit {
   weatherCurrent: any;
   lastFourDays
   LocationData = []
-  mobVr: boolean = false;
   constructor(public service: GlobalService) { }
 
   ngOnInit(): void {
@@ -41,10 +40,10 @@ export class CitylistComponent implements OnInit {
       console.log(this.weatherReport);
       this.service.loader=false;
     })
-    this.onExpand('London')
+    this.onExpand('London' , false)
   }
-  onExpand(cityName){
-    this.mobVr = !this.mobVr;
+  onExpand(cityName, flag){
+    this.service.mobVr = flag;
     this.service.loader=true;
     this.service.getHistory(cityName).subscribe(x=>{
       this.lastFourDays = [x];

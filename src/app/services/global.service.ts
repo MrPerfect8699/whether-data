@@ -8,7 +8,8 @@ const REST_API_SERVER = "http://api.openweathermap.org/data/2.5/weather?q=London
   providedIn: 'root'
 })
 export class GlobalService {
-  loader=true
+  loader=true;
+  mobVr=false;
   constructor(private httpClient: HttpClient) { }
 
   public sendGetRequest(location){
